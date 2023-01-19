@@ -1,0 +1,49 @@
+<div class="main shop">
+    <myshop-page-header [title]="pageTitle" subtitle="Exam"></myshop-page-header>
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">{{ pageTitle }}</li>
+                <li class="breadcrumb-item" *ngIf="searchTerm != ''">
+                    <span>Search - {{ searchTerm }}</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 skeleton-body sekl-shop-products" [class.loaded]="loaded">
+                    <div class="toolbox">
+                        <div class="toolbox-left">
+                            <div class="toolbox-info">
+                                Showing
+                                <span>{{ products.length }} of {{ totalCount }}</span> Products
+                            </div>
+                        </div>
+
+                        <div class="toolbox-right">
+                            <div class="toolbox-sort">
+                                <label for="sortby">Sort by:</label>
+                                <div class="select-custom">
+                                    <select name="sortby" id="sortby" class="form-control"
+                                        (change)="changeOrderBy($event)" [value]="orderBy">
+                                        <option value="default">Default</option>
+                                        <option value="new">Date</option>
+                                    </select>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <myshop-shop-list-one [type]="type" [products]="products" [loaded]="loaded">
+                    </myshop-shop-list-one>
+
+                    <myshop-pagination [perPage]="perPage" [total]="totalCount" *ngIf="totalCount > perPage">
+                    </myshop-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

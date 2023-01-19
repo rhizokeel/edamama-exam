@@ -1,0 +1,37 @@
+<div class="mobile-menu-container mobile-menu-light">
+    <div class="mobile-menu-wrapper">
+        <span class="mobile-menu-close" (click)="hideMobileMenu()"><i class="icon-close"></i></span>
+
+        <form action="#" method="get" class="mobile-search" (submit)="submitSearchForm($event)">
+            <label for="mobile-search" class="sr-only">Search</label>
+            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..."
+                required>
+            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+        </form>
+
+        <ul ngbNav #nav="ngbNav" class="nav nav-pills-mobile nav-border-anim">
+            <li ngbNavItem>
+                <a ngbNavLink>
+                    Menu
+                </a>
+                <ng-template ngbNavContent>
+                    <nav class="mobile-nav">
+                        <ul class="mobile-menu">
+                            <li>
+                                <a routerLink="/">
+                                    Home
+                                    <span class="mmenu-btn" (click)="submenuToggle($event)"></span>
+                                </a>
+                                <ul>
+                                    <li><a routerLink="/">Home</a></li> <!-- /** Wrote this one because you might get confused with the drop down Home, that is clickable too **/ -->
+                                    <li><a routerLink="/shop/cart">Cart</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </ng-template>
+            </li>            
+        </ul>
+        <div [ngbNavOutlet]="nav"></div>
+    </div>
+</div>

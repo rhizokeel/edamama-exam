@@ -1,0 +1,58 @@
+<div class="product product-list">
+    <div class="row pr-2">
+        <div class="col-lg-3 col-md-3 col-6">
+            <figure class="product-media">
+                <span class="product-label label-out" *ngIf="!product.stock || product.stock == 0">Out Of Stock</span>
+
+                <a [routerLink]="['/product/default/'+ product.slug]">
+                    <myshop-image [src]="SERVER_URL + product.sm_pictures[0].url" alt="Product"
+                        [width]="product.sm_pictures[0].width" [height]="product.sm_pictures[0].height"
+                        class="product-image" fixedPt="100%">
+                    </myshop-image>
+                    <myshop-image [src]="SERVER_URL + product.sm_pictures[1].url" alt="Product" class="product-image-hover"
+                        *ngIf="product.sm_pictures[1]" fixedPt="100%"></myshop-image>
+                </a>
+            </figure>
+        </div>
+
+        <div class="col-lg-6 col-md-6 order-last">
+            <div class="product-body product-action-inner">
+                <div class="product-cat">
+                    <span *ngFor="let cat of product.category; let i =index">
+                        <a [routerLink]="['/']" [queryParams]="{category: cat.slug}">{{ cat.name }}</a>
+                        {{ i < product.category.length - 1 ? ',' : '' }}
+                    </span>
+                </div>
+
+                <h3 class="product-title">
+                    <a [routerLink]="['/product/default/'+ product.slug]">{{ product.name }}</a>
+                </h3>
+
+                <div class="product-content">
+                    <p>{{ product.short_desc }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-6 order-md-last order-lg-last">
+            <div class="product-list-action">
+                <div class="product-price" *ngIf="!product.stock || product.stock == 0 else elseBlock">
+                    <span class="out-price">₱{{ product.price.toFixed(2) }}</span>
+                </div>
+
+                <ng-template #elseBlock>
+                    <span class="product-price">₱{{ product.price.toFixed(2) }}</span>
+                </ng-template>
+
+                <div class="product-action">
+                    <a href="javascript:;" class="btn-product btn-quickview" title="Quick view"
+                        (click)="quickView($event)"><span>Quick view</span></a>
+                </div>
+
+                <a (click)="addToCart($event)" class="btn-product btn-cart">
+                    <span>add to cart</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

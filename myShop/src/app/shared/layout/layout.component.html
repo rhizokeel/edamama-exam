@@ -1,0 +1,7 @@
+<div class="page-wrapper">
+    <myshop-header [containerClass]="containerClass"></myshop-header>
+
+    <div [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+</div>

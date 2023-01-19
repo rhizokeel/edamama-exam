@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+/* Main CSS File */
+@import 'mixins/clearfix';
+@import 'mixins/breakpoints';
+@import 'mixins/lazy';
+@import 'mixins/buttons';
+
+@import 'config/variables';
+$font-family: 'Jost';
+
+@import 'base/base';
+@import 'base/type';
+@import 'base/layout';
+
+@import 'base/headers/header';
+@import 'base/headers/menu';
+@import 'base/headers/vertical-menu';
+@import 'base/headers/sticky-header';
+
+@import 'base/headers/mobile-menu';
+@import 'base/headers/mobile-menu-light';
+
+@import 'elements/page-header';
+@import 'elements/breadcrumb';
+@import 'elements/titles';
+@import 'elements/icon-boxes';
+@import 'elements/tabs';
+@import 'elements/buttons';
+@import 'elements/products';
+@import 'elements/forms';
+@import 'elements/tables';
+@import 'elements/pagination';
+@import 'elements/alerts';
+@import 'elements/image-lightbox';
+@import 'elements/slider';
+@import 'elements/toast';
+@import 'elements/skeleton';
+@import 'elements/animations';
+@import 'elements/lazy-load';
+@import 'elements/grid';
+@import 'elements/lightbox';
+
+@import 'pages/home';
+@import 'pages/category';
+@import 'pages/product';
+@import 'pages/checkout';
+@import 'pages/cart-2';
+@import 'pages/cart';
+@import 'pages/404';
+
+@import 'config/helpers';
+@import 'config/spacing';
+
+@import 'skins/skin';
+@import 'custom';

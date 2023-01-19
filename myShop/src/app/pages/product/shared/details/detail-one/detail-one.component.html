@@ -1,0 +1,27 @@
+<div class="product-details">
+    <h1 class="product-title">{{ product.name }}</h1>
+
+    <div class="product-price" *ngIf="!product.stock || product.stock == 0 else elseBlock">
+        <span class="out-price">₱{{ product.price.toFixed(2) }}</span>
+    </div>
+
+    <ng-template #elseBlock>
+        <span class="product-price">₱{{ product.price.toFixed(2) }}</span>
+    </ng-template>
+
+    <div class="product-content">
+        <p>{{ product.short_desc }}</p>
+    </div>
+
+    <div class="details-filter-row details-row-size">
+        <label for="qty">Qty:</label>
+        <myshop-quantity-input [max]="product.stock" (changeQty)="onChangeQty( $event )" [value]="qty">
+        </myshop-quantity-input>
+    </div>
+
+    <div class="product-details-action">
+        <a class="btn-product btn-cart"
+            (click)="addCart( $event )"><span>add to cart</span></a>
+    </div>
+
+</div>

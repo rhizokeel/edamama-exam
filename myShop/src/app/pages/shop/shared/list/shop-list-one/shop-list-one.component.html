@@ -1,0 +1,13 @@
+<div class="products mb-3">
+    <p class="no-results" *ngIf="products.length == 0 && loaded else resultBlock">No products matching your selection.
+    </p>
+
+    <ng-template #resultBlock>
+        <div *ngIf="!loaded else listBlock">
+            <div class="skel-pro skel-pro-list" *ngFor="let item of fakeArray[type]"></div>
+        </div>
+        <ng-template #listBlock>
+            <myshop-product-one [product]="product" *ngFor="let product of products"></myshop-product-one>
+        </ng-template>
+    </ng-template>
+</div>

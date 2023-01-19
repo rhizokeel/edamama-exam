@@ -1,0 +1,29 @@
+<main class="main">
+    <myshop-breadcrumb current="Product" [prev]="prev" [next]="next">
+    </myshop-breadcrumb>
+
+    <div class="page-content default-page">
+        <div class="container skeleton-body">
+            <div class="product-details-top">
+                <div class="row skel-pro-single" [class.loaded]="loaded">
+                    <div class="col-md-6">
+                        <div class="skel-product-gallery"></div>
+                        <product-gallery-default [product]="product" *ngIf="loaded"></product-gallery-default>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="entry-summary row">
+                            <div class="col-md-12">
+                                <div class="entry-summary1 mt-2 mt-md-0"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="entry-summary2"></div>
+                            </div>
+                        </div>
+                        <product-detail-one [product]="product" *ngIf="loaded"></product-detail-one>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
