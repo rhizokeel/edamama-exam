@@ -1,4 +1,4 @@
-# Shop App built using MEAN (MongoDB, Express, Angular, NodeJS)
+# Shop App built using MEAN (MongoDB, Express, AngularJS, NodeJS)
 ---
 This is for exam purposes for edamama company.
 
@@ -27,3 +27,13 @@ $ npm install
 # Run the application
 $ npm start
 ```
+
+##### Post Setup
+
+- Generate initial data for `products` collection in `myshopdb` database in MongoDB
+
+``` 
+# Call API using curl
+curl --location --request POST "http://localhost:5000/products/saveall"
+```
+
